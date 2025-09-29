@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query"
+import axios from "axios"
 
 async function getLocation() {
-  const res = await fetch("https://geocoding-api.open-meteo.com/v1/search?name=Budapest")
-  if (!res.ok) throw new Error("Failed request")
-  return res.json()
+  const res = await axios.get("https://geocoding-api.open-meteo.com/v1/search", {
+    params: { name: "Budapest" },
+  })
+  return res.data
 }
 
 function App() {
