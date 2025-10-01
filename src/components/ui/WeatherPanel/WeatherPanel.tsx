@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router"
 import { useForecast } from "../../../resources/useForecast"
 import { LocationSearchParams } from "../../../constants/LocationSearchParams"
 import { weatherCodeToText } from "../../../utils/weatherCodes"
+import styles from "./WeatherPanel.module.css"
 
 function WeatherPanel() {
   const [searchParams] = useSearchParams()
@@ -19,9 +20,11 @@ function WeatherPanel() {
   const unit = data?.current_weather_units?.temperature
 
   return (
-    <div>
-      <div>
-        {temp} {unit}
+    <div className={styles.container}>
+
+      <div className={styles.temperatureDisplay}>
+        <span>{temp}</span>
+        <span>{unit}</span>
       </div>
 
       <div>{condition}</div>

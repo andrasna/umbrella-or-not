@@ -1,0 +1,11 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+}
+
+.temperatureDisplay {
+	font-size: 3rem;
+	display: flex;
+	gap: 1rem;
+}

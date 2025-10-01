@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField"
 import type { Location } from "../../../types/location"
 import { useLocations } from "../../../resources/useLocations"
 import { LocationSearchParams } from "../../../constants/LocationSearchParams"
+import styles from "./LocationAutocomplete.module.css"
 
 function OptionListItem({
   optionProps,
@@ -36,7 +37,7 @@ function LocationAutcomplete() {
   const { data: locations = [], isLoading } = useLocations(inputValue)
 
   return (
-    <div>
+    <div className={styles.container}>
       <Autocomplete
         options={locations}
         loading={isLoading}
@@ -65,6 +66,26 @@ function LocationAutcomplete() {
         renderInput={(params) => (
           <TextField
             {...params}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                color: "white",
+                "& fieldset": {
+                  borderColor: "white",
+                },
+                "&:hover fieldset": {
+                  borderColor: "white",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "white",
+                },
+              },
+              "& .MuiInputLabel-root": {
+                color: "white",
+              },
+              "& .MuiSvgIcon-root": {
+                color: "white",
+              },
+            }}
           />
         )}
       />
