@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query"
-import { searchLocations } from "../endpoints/geocoding"
+import { getLocations } from "../endpoints/geocoding"
 import type { Location } from "../types/location"
 
-const searchLocationsKey = "searchLocationsKey"
+const getLocationsKey = "getLocationsKey"
 
 export function useLocations(locationName: string) {
   return useQuery<Location[]>({
-    queryKey: [searchLocationsKey, locationName],
-    queryFn: () => searchLocations(locationName),
+    queryKey: [getLocationsKey, locationName],
+    queryFn: () => getLocations(locationName),
     enabled: locationName.length > 1,
   })
 }
