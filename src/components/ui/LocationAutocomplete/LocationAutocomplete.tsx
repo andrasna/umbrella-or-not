@@ -39,6 +39,7 @@ function LocationAutcomplete() {
   return (
     <div className={styles.container}>
       <Autocomplete
+        size="small"
         options={locations}
         loading={isLoading}
         inputValue={inputValue}
@@ -66,6 +67,7 @@ function LocationAutcomplete() {
         renderInput={(params) => (
           <TextField
             {...params}
+            placeholder="Location"
             sx={{
               "& .MuiOutlinedInput-root": {
                 color: "white",

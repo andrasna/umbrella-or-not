@@ -12,7 +12,7 @@ function Home() {
         <WeatherWidget />
       </section>
       
-      <section>
+      <section className={styles.dataWidgets}>
         <WeatherForecastWidget />
         <WeatherChartWidget />
       </section>

@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router"
 import { useForecast } from "../../../resources/useForecast"
 import { LocationSearchParams } from "../../../constants/LocationSearchParams"
-import { weatherCodeToText } from "../../../utils/weatherCodes"
+import { weatherCodeToIcon, weatherCodeToText } from "../../../utils/weatherCodes"
 import styles from "./WeatherWidget.module.css"
 
 function WeatherWidget() {
@@ -13,7 +13,7 @@ function WeatherWidget() {
 
   if (isLoading) return <div style={{ padding: 16 }}>Loading…</div>
 
-  if (error) return <div style={{ padding: 16 }}>Failed to load forecast</div>
+  if (error) return <div style={{ padding: 16 }}>Failed to load current weather</div>
 
   if (!data) {
     return null
@@ -21,6 +21,7 @@ function WeatherWidget() {
 
   const code = data.current_weather?.weathercode
   const condition = weatherCodeToText(code)
+  const conditionIcon = weatherCodeToIcon(code)
   const temp = Math.round(Number(data.current_weather?.temperature))
   const unit = data.current_weather_units?.temperature
 
@@ -32,7 +33,7 @@ function WeatherWidget() {
         <span>{unit}</span>
       </p>
 
-      <p>{condition}</p>
+      <p>{conditionIcon} {condition}</p>
     </div>
   )
 }

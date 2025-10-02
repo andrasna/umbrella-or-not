@@ -1,0 +1,36 @@
+.list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  padding-left: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 6rem 2.5rem 4rem 1fr;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.weatherIcon {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.precipitationProbability {
+  opacity: 0.9;
+}
+
+.temperatureRange {
+  display: flex;
+  gap: 0.25rem;
+  justify-self: end;
+}
+
+.headerText {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
