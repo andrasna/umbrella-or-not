@@ -2,22 +2,27 @@ import { useSearchParams } from "react-router"
 import { useForecast } from "../../../resources/useForecast"
 import { LocationSearchParams } from "../../../constants/LocationSearchParams"
 import { weatherCodeToText } from "../../../utils/weatherCodes"
-import styles from "./WeatherPanel.module.css"
+import styles from "./WeatherWidget.module.css"
 
-function WeatherPanel() {
+function WeatherWidget() {
   const [searchParams] = useSearchParams()
-  const LatitudeParam = Number(searchParams.get(LocationSearchParams.Latitude))
-  const LongitudeParam = Number(searchParams.get(LocationSearchParams.Longitude))
+  const latitude = searchParams.get(LocationSearchParams.Latitude)
+  const longitude = searchParams.get(LocationSearchParams.Longitude)
 
-  const { data, isLoading, error } = useForecast(LatitudeParam, LongitudeParam)
+  const { data, isLoading, error } = useForecast({latitude, longitude})
 
   if (isLoading) return <div style={{ padding: 16 }}>Loading…</div>
+
   if (error) return <div style={{ padding: 16 }}>Failed to load forecast</div>
 
-  const code = data?.current_weather?.weathercode
+  if (!data) {
+    return null
+  }
+
+  const code = data.current_weather?.weathercode
   const condition = weatherCodeToText(code)
-  const temp = Math.round(Number(data?.current_weather?.temperature))
-  const unit = data?.current_weather_units?.temperature
+  const temp = Math.round(Number(data.current_weather?.temperature))
+  const unit = data.current_weather_units?.temperature
 
   return (
     <div className={styles.container}>
@@ -32,4 +37,4 @@ function WeatherPanel() {
   )
 }
 
-export { WeatherPanel }
+export { WeatherWidget }

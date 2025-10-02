@@ -4,10 +4,28 @@ import { getForecast } from "../endpoints/forecast"
 
 const forecastQueryKey = "ForecastQueryKey"
 
-export function useForecast(latitude?: number, longitude?: number) {
+export type CoordinateValue = number | string | null
+
+export type Coordinates = {
+  latitude: CoordinateValue
+  longitude: CoordinateValue
+}
+
+const hasValidCoordinates = ({ latitude, longitude }: Coordinates): boolean => {
+  return (
+    latitude !== null &&
+    longitude !== null &&
+    latitude !== "" &&
+    longitude !== ""
+  )
+}
+
+function useForecast({ latitude, longitude }: Coordinates) {
   return useQuery<Forecast>({
     queryKey: [forecastQueryKey, latitude, longitude],
-    queryFn: () => getForecast(latitude!, longitude!),
-    enabled: typeof latitude === "number" && typeof longitude === "number",
+    queryFn: () => getForecast(Number(latitude), Number(longitude)),
+    enabled: hasValidCoordinates({ latitude, longitude }),
   })
 }
+
+export { useForecast }
