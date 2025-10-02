@@ -1,9 +1,9 @@
-# What's the Weather Like
+# Umbrella Or Not 
 
 A weather app built with Vite + React + TypeScript.  
 Data comes from Open‑Meteo (no API key required).
 
-🔗 **Live demo deployed Netlify:** [What's the Weather Like App](https://tubular-crepe-357823.netlify.app/?location=Budapest&latitude=47.49835&longitude=19.04045)
+🔗 **Live demo deployed Netlify:** [Umbrella Or Not](https://umbrella-or-not.netlify.app/?location=Budapest&latitude=47.49835&longitude=19.04045)
 
 
 ## Prerequisites
