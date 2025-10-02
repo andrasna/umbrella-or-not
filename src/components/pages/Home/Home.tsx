@@ -6,12 +6,17 @@ import styles from "./Home.module.css"
 
 function Home() {
   return (
-    <div className={styles.container}>
-      <LocationAutcomplete />
-      <WeatherWidget />
-      <WeatherForecastWidget />
-      <WeatherChartWidget />
-    </div>
+    <main className={styles.container}>
+      <section>
+        <LocationAutcomplete />
+        <WeatherWidget />
+      </section>
+      
+      <section>
+        <WeatherForecastWidget />
+        <WeatherChartWidget />
+      </section>
+    </main>
   )
 }
 

@@ -27,12 +27,12 @@ function WeatherWidget() {
   return (
     <div className={styles.container}>
 
-      <div className={styles.temperatureDisplay}>
+      <p className={styles.temperatureDisplay}>
         <span>{temp}</span>
         <span>{unit}</span>
-      </div>
+      </p>
 
-      <div>{condition}</div>
+      <p>{condition}</p>
     </div>
   )
 }
