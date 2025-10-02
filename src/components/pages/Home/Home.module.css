@@ -1,5 +1,16 @@
 .container {
+  padding: 0;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   flex-direction: column;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .container {
+    gap: 4rem;
+    padding: 2rem;
+    flex-direction: row;
+  }
 }
