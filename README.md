@@ -13,8 +13,8 @@ Data comes from Open‑Meteo (no API key required).
 ## Setup
 1) Clone and install
 ```bash
-git clone <your-repo-url>
-cd whats-the-weather-like
+git clone git@github.com:andrasna/umbrella-or-not.git
+cd umbrella-or-not
 npm install
 ```
 
